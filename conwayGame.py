@@ -5,7 +5,7 @@ from time import sleep as zzz
 
 
 class Board(QtGui.QMainWindow):
-    def __init__(self, numrows=30, numclmns=30):
+    def __init__(self, numrows=22, numclmns=22):
         super(Board, self).__init__()
         self.ui = gameUi.Ui_MainWindow()
         self.running = 0
@@ -33,7 +33,7 @@ class Board(QtGui.QMainWindow):
         self.setTick()
         self.setupGrid()
 
-    def setupGrid(self, numrows=30, numclmns=30):
+    def setupGrid(self, numrows=24, numclmns=24):
         self.gridCellList = []
         for rnum in range(numrows):
             rowList = []
@@ -182,7 +182,7 @@ class Cell(QtGui.QWidget):
         self.setMaximumHeight(32)
         self.setMinimumWidth(30)
         self.setMaximumWidth(32)
-        self.btn = QtGui.QPushButton('..')
+        self.btn = QtGui.QPushButton('_')
         self.btn.setContentsMargins(0, 0, 0, 0)
         self.btn.setMaximumWidth(32)
         self.btn.setMinimumWidth(28)
@@ -208,11 +208,10 @@ class Cell(QtGui.QWidget):
 
     def syncBtnState(self):
         if self.isLive:
-            self.btn.setText('||')
+            self.btn.setText(':]')
             self.btn.setStyleSheet('QPushButton {background-color: green}')
-
         else:
-            self.btn.setText('..')
+            self.btn.setText('_')
             self.btn.setStyleSheet('QPushButton {background-color: grey}')
 
 
